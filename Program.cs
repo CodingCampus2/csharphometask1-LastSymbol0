@@ -9,11 +9,10 @@ namespace HomeworkTemplate
         {
             Func<Task1, string> TaskSolver = task =>
             {
-                // Your solution goes here
-                // You can get all needed inputs from task.[Property]
-                // Good luck!
+                float sickPeopleCount = float.Parse(task.City.Population) * float.Parse(task.City.SickPercentage);
+                float deadPeopleCount = float.Parse(task.Virus.KillProbability) * sickPeopleCount;
 
-                return "My answer";
+                return $"There are {Math.Truncate(sickPeopleCount)} people sick with {task.Virus.Name} in the city of {task.City.Name}, {Math.Truncate(deadPeopleCount)} of which died";
             };
 
             Task1.CheckSolver(TaskSolver);
